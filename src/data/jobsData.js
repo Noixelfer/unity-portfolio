@@ -1,34 +1,32 @@
 export const jobs = [
   {
-    title: "Frontend Developer - Neowyze",
-    time: ["12/2024 - 05/2025"],
+    title: "Lead Unity Game Developer – EVL PPY",
+    time: ["10/2020 – Present"],
     description:
-      "Mis tareas en Neowyze consisten en desarrollar webs responsivas basadas en diseños proporcionados en Figma, utilizando Astro, React, Tailwind y otras librerías frontend.",
+        "Lead Unity developer responsible for the development, optimization, and live support of multiple mobile simulation games released on Google Play and the App Store.",
     list: [
-      "Para el flujo de trabajo, utilizo Jira como herramienta de gestión y Git/GitHub como sistema de control de versiones.",
-      "Trabajo bajo la metodología ágil Scrum, con sprints de 2 semanas y dos reuniones diarias (dailies) para planificar el proyecto y presentar avances",
+      "Led the development of Driving School Simulator: Evo, defining technical direction and owning core gameplay, performance, and architecture decisions.",
+      "Designed and implemented complex gameplay systems including vehicle tuning, drag race mode, mission logic, camera systems, and runtime lightmap switching.",
+      "Developed custom Unity Editor tools and internal pipelines to improve team productivity and reduce iteration time.",
+      "Integrated Firebase Analytics and Crashlytics to monitor player behavior, stability, and live performance.",
+      "Profiled and optimized CPU, GPU, and memory usage to ensure smooth gameplay on low-end mobile devices.",
+      "Contributed to and supported additional live titles such as Police Sim 2022 Car Games and Taxi Sim 2022 Evolution.",
+      "Implemented expandable mission systems, custom cutscenes logic and development helper tools.",
+      "Delivered major content updates including new game modes, vehicles, and gameplay features.",
+      "Ran A/B tests and integrated Firebase events using Google Play Console to validate gameplay and monetization changes.",
+      "Managed and coordinated a development team, reviewed code, planned features, and maintained project timelines.",
     ],
   },
   {
-    title: "Frontend Developer - Vegna",
-    time: ["05/2024 - 02/2024"],
-    description: "Desarrollo y mantenimiento de interfaces de usuario con:",
-    list: ["JavaScript - TypeScript", "React - Next.js", "Tailwind", "Shadcn"],
-  },
-  {
-    title: "Frontend Developer - Igrowker",
-    time: ["07/2022 - 08/2022"],
-    description: "Desarrollo y mantenimiento de interfaces de usuario con",
-    list: ["React - React Router - Context api - CSS - Material UI"],
-  },
-  {
-    title: " Web Developer - NoCountry",
-    time: ["03/2022 - 06/2022"],
+    title: "Unity Game Developer – TractorSetGo",
+    time: ["05/2018 – 10/2020"],
     description:
-      "Desarrollo de aplicaciones web responsivas MVP fullstack usando para su desarrollo tecnologías como",
+        "Unity developer focused on gameplay systems, UI/UX, and AI for multiple game prototypes and released projects.",
     list: [
-      "Frontend : React - React Router - Context api - tailwindcss",
-      "Backend : API REST con Express.js, MongoDB",
+      "Designed and implemented gameplay mechanics, UI systems, and AI behaviors to create engaging player experiences.",
+      "Collaborated closely with artists to integrate assets, animations, and visual effects into Unity projects.",
+      "Developed and maintained C# codebases following software engineering best practices, including version control and code reviews.",
+      "Built and iterated on multiple game prototypes and MVPs across different genres.",
     ],
   },
 ];

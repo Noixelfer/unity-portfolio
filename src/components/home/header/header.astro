@@ -4,40 +4,64 @@ import TypeEfect from "../header/typeEfect.jsx";
 ---
 
 <header class="relative h-screen bg-gray-950 overflow-hidden">
+  <!-- Background gradients -->
   <div class="absolute inset-0 grid grid-cols-2">
     <div
       class="animate-gradientMove h-80 bg-linear-to-br from-[#982cf0] to-[#581f86] opacity-30 blur-[120px]"
-    >
-    </div>
+    ></div>
     <div
       class="animate-gradientMove2 h-80 bg-linear-to-br from-[#277752] to-[#02ffee] opacity-30 blur-[120px]"
-    >
-    </div>
+    ></div>
   </div>
 
+  <!-- Content -->
   <main
     class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4"
   >
-    <h1 class="text-4xl md:text-7xl font-bold text-white text-shadow mt-10">
-      Hola! soy Lautaro
+    <!-- Role -->
+    <span class="text-sm md:text-lg text-primary font-semibold tracking-wide uppercase">
+      Unity Game Developer
+    </span>
+
+    <!-- Name -->
+    <h1 class="text-4xl md:text-7xl font-bold text-white text-shadow mt-4">
+      Paul Pop
     </h1>
 
+    <!-- Animated specialties -->
     <TypeEfect client:visible />
 
+    <!-- Value proposition -->
     <p
-      class="text-xs md:text-xl text-white max-w-sm md:max-w-xl font-semibold mt-3"
+      class="text-sm md:text-xl text-white max-w-md md:max-w-2xl font-medium mt-4 opacity-90"
     >
-      Explora mis proyectos, conoce un poco más sobre mí y, si deseas ponerte en
-      contacto, ¡estoy a solo un mensaje de distancia!
+      I build and optimize mobile and PC games in Unity, with a strong focus on
+      performance, scalable systems, and clean architecture.
+      <br class="hidden md:block" />
+      Over <strong>7+ years of professional experience</strong> shipping real-world projects.
     </p>
+
+    <!-- Social links -->
     <SocialIcons client:visible />
-    <a
-      target="_blank"
-      href="https://drive.google.com/file/d/1dIUZSRRXzl_TCSAeoRfMKT_SvydItgUd/view?usp=sharing"
-      class="px-6 py-3 bg-primary hover:bg-secondary mt-3 text-white font-semibold rounded-3xl transition-all duration-150
-         drop-shadow-[2px_2px_0_#0debd8] active:translate-0.5 active:drop-shadow-none"
-    >
-      Mi Curriculum
-    </a>
+
+    <!-- CTAs -->
+    <div class="flex gap-4 mt-6">
+      <a
+        href="/projects"
+        class="px-6 py-3 bg-primary hover:bg-secondary text-white font-semibold rounded-3xl transition-all duration-150
+          drop-shadow-[2px_2px_0_#0debd8] active:translate-0.5 active:drop-shadow-none"
+      >
+        View Projects
+      </a>
+
+      <a
+        target="_blank"
+        href="https://drive.google.com/file/d/1dIUZSRRXzl_TCSAeoRfMKT_SvydItgUd/view?usp=sharing"
+        class="px-6 py-3 border border-primary text-white font-semibold rounded-3xl transition-all duration-150
+          hover:bg-primary/20"
+      >
+        Download CV
+      </a>
+    </div>
   </main>
 </header>

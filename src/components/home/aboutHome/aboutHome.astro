@@ -1,6 +1,8 @@
 ---
 import { HiArrowRight } from "react-icons/hi";
 import MiFoto from "../../../assets/img/MiFoto.png";
+
+const basePath = import.meta.env.BASE_URL;
 ---
 
 <section class="relative -mt-6 flex items-center justify-center px-4 pt-0 md:-mt-10 md:pt-0">
@@ -37,7 +39,7 @@ import MiFoto from "../../../assets/img/MiFoto.png";
       </p>
 
       <a
-        href="/about"
+        href={`${basePath}about`}
         class="group mt-4 inline-flex items-center text-primary font-bold transition-all"
       >
         View more about me

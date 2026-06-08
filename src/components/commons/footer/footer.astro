@@ -1,5 +1,7 @@
 ---
 import SocialIcons from "../socialIcons/socialIcons.jsx";
+
+const basePath = import.meta.env.BASE_URL;
 ---
 
 <footer class="bg-gray-950 text-white">
@@ -7,7 +9,7 @@ import SocialIcons from "../socialIcons/socialIcons.jsx";
     class="container mx-auto flex flex-col items-center justify-between px-6 py-12 lg:flex-row lg:px-20"
   >
     <!-- Logo -->
-    <a href="/" class="flex items-center">
+    <a href={basePath} class="flex items-center">
       <h3
         class="text-[#69c7c7] text-4xl font-bold drop-shadow-[1.5px_1.5px_0_#7836cf]"
       >
@@ -20,18 +22,18 @@ import SocialIcons from "../socialIcons/socialIcons.jsx";
         class="flex flex-col items-center space-y-2 text-gray-400 lg:flex-row lg:items-start lg:space-y-0 lg:space-x-6"
       >
         <li>
-          <a href="/" class="hover:text-[#552496] font-semibold">Home</a>
+          <a href={basePath} class="hover:text-[#552496] font-semibold">Home</a>
         </li>
         <li>
-          <a href="/projects" class="hover:text-[#552496] font-semibold"
+          <a href={`${basePath}projects`} class="hover:text-[#552496] font-semibold"
             >Projects</a>
         </li>
         <li>
-          <a href="/about" class="hover:text-[#552496] font-semibold"
+          <a href={`${basePath}about`} class="hover:text-[#552496] font-semibold"
             >About Me</a>
         </li>
         <li>
-          <a href="/contact" class="hover:text-[#552496] font-semibold"
+          <a href={`${basePath}contact`} class="hover:text-[#552496] font-semibold"
             >Contact</a>
         </li>
       </ul>

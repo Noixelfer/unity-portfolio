@@ -1,5 +1,7 @@
 ---
 import SocialIcons from "../../commons/socialIcons/socialIcons.jsx";
+
+const basePath = import.meta.env.BASE_URL;
 ---
 
 <header class="relative min-h-[52vh] bg-gray-950 overflow-hidden pt-24 pb-0 md:pt-28 md:pb-0">
@@ -43,7 +45,7 @@ import SocialIcons from "../../commons/socialIcons/socialIcons.jsx";
     <!-- CTAs -->
     <div class="flex gap-4 mt-6">
       <a
-        href="/projects"
+        href={`${basePath}projects`}
         class="px-6 py-3 bg-primary hover:bg-secondary text-white font-semibold rounded-3xl transition-all duration-150
           drop-shadow-[2px_2px_0_#0debd8] active:translate-0.5 active:drop-shadow-none"
       >
@@ -52,7 +54,7 @@ import SocialIcons from "../../commons/socialIcons/socialIcons.jsx";
 
       <a
         target="_blank"
-        href="/Paul-Pop-CV.pdf"
+        href={`${basePath}Paul-Pop-CV.pdf`}
         class="px-6 py-3 border border-primary text-white font-semibold rounded-3xl transition-all duration-150
           hover:bg-primary/20"
       >

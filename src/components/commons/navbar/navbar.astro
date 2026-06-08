@@ -2,11 +2,12 @@
 import { FiMenu, FiX } from "react-icons/fi";
 import { FaLinkedinIn } from "react-icons/fa6";
 
+const basePath = import.meta.env.BASE_URL;
 const links = [
-  { name: "Home", href: "/" },
-  { name: "Projects", href: "/projects" },
-  { name: "About Me", href: "/about" },
-  { name: "Contact", href: "/contact" },
+  { name: "Home", href: basePath },
+  { name: "Projects", href: `${basePath}projects` },
+  { name: "About Me", href: `${basePath}about` },
+  { name: "Contact", href: `${basePath}contact` },
 ];
 ---
 
@@ -20,7 +21,7 @@ const links = [
   >
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
       <!-- Logo -->
-      <a href="/" class="flex items-center">
+      <a href={basePath} class="flex items-center">
         <h3
           class="text-[#69c7c7] text-3xl font-bold drop-shadow-[1.5px_1.5px_0_#7836cf]"
         >

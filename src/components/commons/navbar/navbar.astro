@@ -2,7 +2,7 @@
 import { FiMenu, FiX } from "react-icons/fi";
 import { FaLinkedinIn } from "react-icons/fa6";
 
-const basePath = import.meta.env.BASE_URL;
+const basePath = import.meta.env.BASE_URL.replace(/\/?$/, "/");
 const links = [
   { name: "Home", href: basePath },
   { name: "Projects", href: `${basePath}projects/` },

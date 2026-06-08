@@ -3,10 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Hero from "../components/commons/hero/hero.astro";
 import AboutMe from "../components/about/aboutMe.astro";
 import Experience from "../components/about/experience.astro";
-import Features from "../components/about/features.astro";
-import Skills from "../components/about/skills.astro";
 import FaqsAbout from "../components/about/FaqsAbout.jsx";
-import BannerGithub from "../components/about/bannerGithub.astro";
 import Banner from "../components/commons/banners/banner.astro";
 ---
 
@@ -14,9 +11,6 @@ import Banner from "../components/commons/banners/banner.astro";
   <Hero titulo="About Me" />
   <AboutMe />
   <Experience />
-  <Features />
-  <Skills />
   <FaqsAbout client:visible/>
-  <BannerGithub />
   <Banner />
 </Layout>

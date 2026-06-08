@@ -6,10 +6,9 @@ export interface Props {
   imagen: string;
   tecnologias: string[];
   demo: string;
-  codigo: string;
 }
 
-const { titulo, imagen, tecnologias, demo, codigo } = Astro.props;
+const { titulo, imagen, tecnologias, demo } = Astro.props;
 ---
 
 <div
@@ -17,7 +16,7 @@ const { titulo, imagen, tecnologias, demo, codigo } = Astro.props;
 >
   <img
     src={imagen}
-    alt={`Proyecto: ${titulo}`}
+    alt={`Project: ${titulo}`}
     class="h-52 p-3 w-full object-cover rounded-2xl"
   />
 
@@ -42,15 +41,6 @@ const { titulo, imagen, tecnologias, demo, codigo } = Astro.props;
         class="w-full text-center border border-[#7836cf] text-[#7836cf] py-1.5 rounded-md text-sm font-semibold hover:bg-[#7836cf] hover:text-gray-900 transition-colors"
       >
         Demo
-      </a>
-
-      <a
-        href={codigo}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="w-full text-center border border-[#7836cf] text-[#7836cf] py-1.5 rounded-md text-sm font-semibold hover:bg-[#7836cf] hover:text-gray-900 transition-colors"
-      >
-        Código
       </a>
     </div>
   </div>

@@ -1,17 +1,17 @@
 ---
 import HomeProjectCard from "./homeProyectCard.astro";
-import { proyectos } from "../../../data/projetsAboutData.js";
+import { projects } from "../../../data/projectData.js";
 ---
 
-<section class="py-10 relative z-10">
+<section class="relative z-10 pt-16 pb-10 md:pt-20">
   <h2
     class="text-3xl md:text-4xl font-bold text-white mb-12 mx-auto px-6 text-center text-shadow"
   >
     Featured Projects
   </h2>
 
-  <div class="mt-8 grid gap-6 md:grid-cols-2 max-w-[930px] mx-auto px-4">
-    {proyectos.map((p) => <HomeProjectCard {...p} />)}
+  <div class="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3 max-w-6xl mx-auto px-4">
+    {projects.map((project) => <HomeProjectCard project={project} />)}
   </div>
   <div class="mt-12 flex justify-center">
     <a

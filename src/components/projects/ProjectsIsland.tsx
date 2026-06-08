@@ -1,4 +1,4 @@
-﻿import { useState, useRef } from "react"
+﻿import { useEffect, useRef, useState } from "react"
 import { projects } from "../../data/projectData"
 import ProjectCard from "./ProjectCard"
 import ProjectDetails from "./ProjectDetails"
@@ -15,16 +15,24 @@ const STORE_PRIORITY = [
 ]
 
 export default function ProjectsIsland() {
-    const [selectedId, setSelectedId] = useState(projects[0].id)
+    const getInitialProjectId = () => {
+        if (typeof window === "undefined") return projects[0].id
+
+        const projectId = new URLSearchParams(window.location.search).get("project")
+        return projects.some((project) => project.id === projectId)
+            ? projectId
+            : projects[0].id
+    }
+
+    const [selectedId, setSelectedId] = useState(getInitialProjectId)
 
     /* refs for drag scrolling */
+    const carouselRef = useRef<HTMLDivElement | null>(null)
     const isDragging = useRef(false)
     const startX = useRef(0)
     const scrollLeft = useRef(0)
 
-    const selectedProject = projects.find(
-        (p) => p.id === selectedId
-    )
+    const selectedProject = projects.find((p) => p.id === selectedId) ?? projects[0]
 
     const preparedProject = {
         ...selectedProject,
@@ -56,11 +64,29 @@ export default function ProjectsIsland() {
         isDragging.current = false
     }
 
+    useEffect(() => {
+        const url = new URL(window.location.href)
+        url.searchParams.set("project", selectedId)
+        window.history.replaceState({}, "", url)
+    }, [selectedId])
+
+    useEffect(() => {
+        const carousel = carouselRef.current
+        const selectedCard = carousel?.querySelector<HTMLElement>(`[data-project-id="${selectedId}"]`)
+
+        selectedCard?.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "center",
+        })
+    }, [selectedId])
+
     return (
         <div className="flex flex-col gap-6 sm:gap-8 lg:gap-10 px-0">
 
             {/* HORIZONTAL CAROUSEL */}
             <div
+                ref={carouselRef}
                 className="
           flex gap-6 overflow-x-auto px-2 pb-6
           no-scrollbar select-none
@@ -75,13 +101,14 @@ export default function ProjectsIsland() {
                 }}
             >
                 {projects.map((project, index) => (
-                    <ProjectCard
-                        key={project.id}
-                        project={project}
-                        index={index}
-                        selected={project.id === selectedId}
-                        onClick={() => setSelectedId(project.id)}
-                    />
+                    <div key={project.id} data-project-id={project.id}>
+                        <ProjectCard
+                            project={project}
+                            index={index}
+                            selected={project.id === selectedId}
+                            onClick={() => setSelectedId(project.id)}
+                        />
+                    </div>
                 ))}
             </div>
 

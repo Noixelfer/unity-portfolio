@@ -57,7 +57,7 @@ export default function ProjectsIsland() {
     }
 
     return (
-        <div className="flex flex-col gap-6 sm:gap-8 lg:gap-10 px-3 sm:px-6 lg:px-8">
+        <div className="flex flex-col gap-6 sm:gap-8 lg:gap-10 px-0">
 
             {/* HORIZONTAL CAROUSEL */}
             <div

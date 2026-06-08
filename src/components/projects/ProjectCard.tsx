@@ -27,7 +27,7 @@
             />
 
             {/* Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10"/>
 
             {/* Content */}
             <div className="relative z-10 flex h-full flex-col justify-end p-4 sm:p-6 text-white">
@@ -35,6 +35,22 @@
                 <p className="mt-1 hidden sm:block text-sm text-gray-200">
                     {project.shortDescription}
                 </p>
+                {/*Technologies*/}
+                <div className="mt-4 flex flex-wrap gap-2">
+                    {project.technologies.map(tech => (
+                        <span
+                            key={tech}
+                            className="
+                rounded-full
+                bg-white/10
+                px-2 py-0.5 text-xs
+                sm:px-3 sm:py-1 sm:text-sm
+            "
+                        >
+            {tech}
+        </span>
+                    ))}
+                </div>
             </div>
         </button>
     )

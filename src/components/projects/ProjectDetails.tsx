@@ -1,27 +1,81 @@
 ﻿import StoreLinks from "./StoreLinks"
+import ProjectVideoSwitcher from "./ProjectVideoSwitcher"
 
 export default function ProjectDetails({ project }) {
+    const formatNumber = (n: number) =>
+        new Intl.NumberFormat("en-US").format(n)
+
     return (
         <div className="rounded-xl border border-white/10 p-6">
             <h2 className="text-2xl font-bold">{project.title}</h2>
 
-            <div className="mt-6 flex flex-wrap gap-2">
-                {project.technologies.map(tech => (
-                    <span
-                        key={tech}
-                        className="rounded-full bg-white/10 px-3 py-1 text-sm"
-                    >
-            {tech}
-          </span>
-                ))}
-            </div>
-            
-            <p className="mt-4 text-white/80">
-                {project.longDescription}
-            </p>
+            {project.youtubeId && (
+                <ProjectVideoSwitcher
+                    youtubeId={project.youtubeId}
+                    videos={project.videos}
+                />
+            )}
 
-            {/* Store links */}
-            <StoreLinks stores={project.stores} />
+            {(project.stores?.length || project.totalDownloads) && (
+                <div className="mt-4 rounded-lg border border-white/15 bg-white/5 p-4">
+                    <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                        {project.stores?.length > 0 && (
+                            <div>
+                                <h3 className="text-sm font-semibold uppercase tracking-wide text-white/70">
+                                    Available on:
+                                </h3>
+                                <div className="mt-2">
+                                    <StoreLinks stores={project.stores} />
+                                </div>
+                            </div>
+                        )}
+
+                        {project.totalDownloads && (
+                            <div className="md:text-right">
+                                <div className="text-xs uppercase tracking-wide text-white/60">
+                                    Total Downloads
+                                </div>
+                                <div className="text-2xl sm:text-3xl font-extrabold text-indigo-300">
+                                    {project.totalDownloads}
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            )}
+
+            {/* Overview */}
+            {project.longDescription?.overview && (
+                <p className="mt-4 text-white/80">{project.longDescription.overview}</p>
+            )}
+
+            {/* Responsibilities */}
+            {project.longDescription?.responsibilities && (
+                <div className="mt-4">
+                    <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide text-white/60">
+                        Responsibilities
+                    </h3>
+                    <ul className="list-disc list-inside space-y-1 text-white/80">
+                        {project.longDescription.responsibilities.map((item) => (
+                            <li key={item}>{item}</li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+
+            {/* Impact */}
+            {project.longDescription?.impact && (
+                <div className="mt-4">
+                    <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide text-white/60">
+                        Impact
+                    </h3>
+                    <ul className="list-disc list-inside space-y-1 text-white/80">
+                        {project.longDescription.impact.map((item) => (
+                            <li key={item}>{item}</li>
+                        ))}
+                    </ul>
+                </div>
+            )}
 
             {/* Optional source code */}
             {project.sourceUrl && (

@@ -8,6 +8,7 @@ import react from "@astrojs/react";
 export default defineConfig({
   site: "https://noixelfer.github.io",
   base: "/unity-portfolio",
+  trailingSlash: "always",
   vite: {
     plugins: [tailwindcss()],
   },

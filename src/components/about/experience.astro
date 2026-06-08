@@ -19,13 +19,17 @@ import { jobs } from "../../data/jobsData";
   <section class="jobs">
     <div class="job-title">
       {
-        jobs.map((job, index) => (
+        jobs.map((job: any, index) => (
           <button
             class={`headline-3 tabbutton ${index === 0 ? "active" : ""}`}
             aria-selected={index === 0 ? "true" : "false"}
             data-index={index}
           >
-            {job.title}
+            <span class="md:hidden">
+              <span class="job-title-mobile">{job.mobileTitle}</span>
+              <span class="job-meta-mobile">{job.mobileMeta}</span>
+            </span>
+            <span class="hidden md:inline">{job.title}</span>
           </button>
         ))
       }

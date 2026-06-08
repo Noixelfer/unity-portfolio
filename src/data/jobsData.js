@@ -1,6 +1,8 @@
 export const jobs = [
   {
     title: "Lead Unity Game Developer – EVL PPY",
+    mobileTitle: "Lead Unity Dev",
+    mobileMeta: "EVL PPY • 2020-Present",
     time: ["10/2020 – Present"],
     description:
         "Lead Unity developer responsible for the development, optimization, and live support of multiple mobile simulation games released on Google Play and the App Store.",
@@ -19,6 +21,8 @@ export const jobs = [
   },
   {
     title: "Unity Game Developer – TractorSetGo",
+    mobileTitle: "Unity Dev",
+    mobileMeta: "TractorSetGo • 2018-2020",
     time: ["05/2018 – 10/2020"],
     description:
         "Unity developer focused on gameplay systems, UI/UX, and AI for multiple game prototypes and released projects.",

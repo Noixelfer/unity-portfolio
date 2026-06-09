@@ -95,7 +95,7 @@ export const projects = [
       {
         platform: "android",
         label: "Google Play",
-        url: "https://play.google.com/store/apps/details?id=com.ovilex.policesim2020.",
+        url: "https://play.google.com/store/apps/details?id=com.ovilex.policesim2020",
       },
       {
         platform: "ios",
@@ -104,7 +104,7 @@ export const projects = [
       },
       {
         platform: "nintendo",
-        label: "App Store",
+        label: "Nintendo Switch",
         url: "https://www.nintendo.com/us/store/products/police-simulator-2023-switch/?srsltid=AfmBOooKNDgsw3-I6l8NYwAtonjQDXHxKN5HrZdFQpSvBxTXXpjFRoek",
       },
     ],

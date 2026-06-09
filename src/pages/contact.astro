@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import MiFoto from "../assets/img/MiFoto.png";
-import CopyMail from "../components/links/copyMail.jsx";
+import ContactCopy from "../components/links/ContactCopy.tsx";
 
 const links = [
   {
@@ -45,7 +45,13 @@ const links = [
       </div>
     </div>
 
-    <CopyMail client:visible />
+    <div class="mb-4 flex flex-col items-center">
+      <ContactCopy
+        client:visible
+        label="Email"
+        value="pauldarius98@gmail.com"
+      />
+    </div>
 
     <!-- Lista de Links -->
     <div class="w-full max-w-xl space-y-4">
@@ -61,6 +67,13 @@ const links = [
           </a>
         ))
       }
+      <ContactCopy
+        client:visible
+        label="Discord"
+        value="noixelfer"
+        displayValue="noixelfer"
+        variant="block"
+      />
     </div>
   </section>
 </Layout>

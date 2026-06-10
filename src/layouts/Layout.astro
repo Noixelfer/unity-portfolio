@@ -9,6 +9,30 @@ const {
 } = Astro.props;
 const basePath = import.meta.env.BASE_URL.replace(/\/?$/, "/");
 const gaMeasurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
+const gaInlineScript = gaMeasurementId
+  ? `window.dataLayer = window.dataLayer || [];
+window.gtag = function gtag(){window.dataLayer.push(arguments);};
+window.gtag('js', new Date());
+window.gtag('config', '${gaMeasurementId}');
+
+document.addEventListener('click', function (event) {
+  const target = event.target instanceof Element
+    ? event.target.closest('[data-analytics-event]')
+    : null;
+
+  if (!target || typeof window.gtag !== 'function') return;
+
+  const eventName = target.getAttribute('data-analytics-event');
+  const eventLabel = target.getAttribute('data-analytics-label') || undefined;
+
+  if (eventName) {
+    window.gtag('event', eventName, {
+      event_category: 'engagement',
+      event_label: eventLabel,
+    });
+  }
+});`
+  : "";
 ---
 
 <!doctype html>
@@ -26,32 +50,7 @@ const gaMeasurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
         ></script>
-        <script is:inline>
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${gaMeasurementId}');
-
-            document.addEventListener('click', function (event) {
-              const target = event.target instanceof Element
-                ? event.target.closest('[data-analytics-event]')
-                : null;
-
-              if (!target || typeof window.gtag !== 'function') return;
-
-              const eventName = target.getAttribute('data-analytics-event');
-              const eventLabel = target.getAttribute('data-analytics-label') || undefined;
-
-              if (eventName) {
-                window.gtag('event', eventName, {
-                  event_category: 'engagement',
-                  event_label: eventLabel,
-                });
-              }
-            });
-          `}
-        </script>
+        <script is:inline set:html={gaInlineScript}></script>
       </>
     )}
   </head>

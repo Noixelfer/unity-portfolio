@@ -27,6 +27,24 @@ const gaMeasurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', '${gaMeasurementId}');
+
+            document.addEventListener('click', function (event) {
+              const target = event.target instanceof Element
+                ? event.target.closest('[data-analytics-event]')
+                : null;
+
+              if (!target || typeof window.gtag !== 'function') return;
+
+              const eventName = target.getAttribute('data-analytics-event');
+              const eventLabel = target.getAttribute('data-analytics-label') || undefined;
+
+              if (eventName) {
+                window.gtag('event', eventName, {
+                  event_category: 'engagement',
+                  event_label: eventLabel,
+                });
+              }
+            });
           `}
         </script>
       </>

@@ -20,6 +20,12 @@ export default function ContactCopy({
   const copyToClipboard = async () => {
     try {
       await navigator.clipboard.writeText(value);
+      if (typeof window !== "undefined" && typeof window.gtag === "function") {
+        window.gtag("event", "copy_contact", {
+          event_category: "engagement",
+          event_label: label.toLowerCase(),
+        });
+      }
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
